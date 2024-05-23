@@ -1,8 +1,3 @@
-const config = {
-  timezone: "Europe/Berlin",
-};
-
-// -------------------------------------------------
 const DateFromTZ = () => {
   return new Date(
     new Date().toLocaleString("en-US", { timeZone: config.timezone })
