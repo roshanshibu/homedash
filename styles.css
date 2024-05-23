@@ -4,6 +4,12 @@
   --int1-clr: #6a6a6a;
   --sec-int1-clr: #373737;
 }
+:root:has(body.MidnightTheme) {
+  --background-clr: #000000;
+  --primary-clr: #7c7c7c;
+  --int1-clr: #6c6c6c;
+  --sec-int1-clr: #272727;
+}
 @font-face {
   font-family: "Inter";
   src: url("assets/Inter.ttf");
