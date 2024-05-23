@@ -1,5 +1,15 @@
+const config = {
+  timezone: "Europe/Berlin",
+};
+
+// -------------------------------------------------
+const DateFromTZ = () => {
+  return new Date(
+    new Date().toLocaleString("en-US", { timeZone: config.timezone })
+  );
+};
 const setTimeAndDate = () => {
-  let now = new Date();
+  let now = DateFromTZ();
   let timeText = now.toLocaleString("en-US", {
     hour: "numeric",
     hour12: true,
@@ -18,7 +28,7 @@ const refreshCalendar = () => {
   Array.from(calendar.children).forEach((child, index) => {
     if (index >= 7) calendar.removeChild(child);
   });
-  let now = new Date();
+  let now = DateFromTZ();
   let numberOfDays = new Date(
     now.getFullYear(),
     now.getMonth() + 1,
