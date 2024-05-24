@@ -3,6 +3,8 @@
   --primary-clr: #a0a0a0;
   --int1-clr: #6a6a6a;
   --sec-int1-clr: #373737;
+  --temperature-clr: 255, 23, 77;
+  --precipitation-clr: 54, 206, 252;
 }
 :root:has(body.MidnightTheme) {
   --background-clr: #000000;
@@ -19,11 +21,11 @@ body {
   font-family: "Inter";
   margin: 1rem 2rem;
   display: flex;
-  flex-direction: column;
   justify-content: space-between;
   -webkit-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  color: var(--primary-clr);
 }
 
 .timeAndDate {
@@ -47,6 +49,11 @@ body {
   font-size: 2.5rem;
 }
 
+.row1 {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
 .calendar {
   color: var(--int1-clr);
   font-size: 1.5rem;
@@ -73,4 +80,74 @@ body {
   color: var(--primary-clr);
   border-radius: 5px;
   margin: 0 0.4ch;
+}
+
+.weather {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+.weather > p {
+  margin: 0 0 10px 0;
+}
+.weather > p:first-child {
+  font-weight: 600;
+  font-size: 1.5rem;
+  text-transform: capitalize;
+}
+.weather > div {
+  display: flex;
+  gap: 12px;
+  height: 60px;
+}
+.weather > div > div {
+  width: 0.8ch;
+  height: 60%;
+  position: relative;
+  opacity: 0.3;
+}
+.weather > div > div:has(p) {
+  width: 1.4ch;
+  opacity: 1;
+}
+.weather > div > div > p {
+  position: absolute;
+  top: -25px;
+  text-align: center;
+  margin: 0;
+  left: -8px;
+}
+.weather > div.precipitationBars > div > p {
+  bottom: -30px;
+  top: unset;
+}
+.temperatureBars {
+  align-items: end;
+  padding-top: 30px;
+}
+.temperatureBars > div {
+  background: rgba(var(--temperature-clr), 0.8);
+  border: solid rgb(var(--temperature-clr));
+  border-width: 2px 2px 0 2px;
+  border-radius: 10px 10px 0 0;
+}
+.precipitationBars {
+  padding-bottom: 25px;
+}
+.precipitationBars > div {
+  background: rgba(var(--precipitation-clr), 0.8);
+  border: solid rgb(var(--precipitation-clr));
+  border-width: 0 2px 2px 2px;
+  border-radius: 0 0 10px 10px;
+}
+.timeAxis {
+  width: 100%;
+  justify-content: space-between;
+  height: fit-content !important;
+  padding: 10px 0 15px 0;
+  font-size: 0.8rem;
+}
+.timeAxis p {
+  margin: 0;
 }
